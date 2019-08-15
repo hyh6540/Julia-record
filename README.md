@@ -26,13 +26,12 @@ end
 |表达式|等价函数|对应Matlab表达式|备注|
 |-|-|-|-|
 |`[A B ...]`|`hcat`|`[A B ...]`||
-|`[A, B, C, ...]`|`vcat`|`[A; B; C; ...]`|Julia也是可以使用分号来表示的，但是逗号是两者最大的区别。|
+|`[A, B, C, ...]`|`vcat`|`[A; B; C; ...]`|Julia也是可以使用分号来表示的，<br>但是逗号是两者最大的区别。|
 |`[A B; C D; ...]`|`hvcat`|`[A B; C D; ...]`||
-|`A'`|`adjoint`|`A'`|两者都表示共轭转置矩阵|
-|`A[i]`|`getindex`|||
-|`A[i] = x`|`setindex!`|||
-|`A.n`|`getproperty`|||
-|`A.n = x`|`setproperty!`|||
+|`A'`|`adjoint`|`A'`|两者都表示共轭转置矩阵, <br>如果仅仅是转置，则用`transpose(A)`.|
+|`A[i]`|`getindex`|`A[i]`||
+|`A[i] = x`|`setindex!`|`A[i] = x`||
+
 
 
 
