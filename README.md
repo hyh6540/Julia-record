@@ -27,7 +27,21 @@ end
 
 这个是Matlab中基本不太用的东西。在Julia中，则有很大的用处: 提高性能和稳定性，减少错误。
 
+- Julia会区分2和2.0的不同，前者默认为整数类型，后者为浮点数类型，当遇到有输入要求的函数时，有可能会抛出异常。
 
+- 相同的函数名称，但是使用不同的输入类型(或者不同的数目)，两者为不同的函数。使用时，会取决于当前输入值的类型，如果不匹配，则会抛出异常；如果两者都适用，则会提醒异常，同时随机选择一个使用。如：
+
+  ```julia
+  function f(x::Float64, y::Float64)
+      return x+y
+  end
+  
+  function f(x::Int64, y::Int64)
+      return x-y
+  end
+  ```
+
+  
 
 
 
@@ -42,6 +56,32 @@ end
 |`A'`|`adjoint`|`A'`|两者都表示共轭转置矩阵, <br>如果仅仅是转置，则用`transpose(A)`.|
 |`A[i]`|`getindex`|`A[i]`||
 |`A[i] = x`|`setindex!`|`A[i] = x`||
+
+
+
+### 并行计算
+
+个人主要使用到的为基于多核的多进程并行。主要使用`remote_call`和`fetch`函数实现，如下：
+
+```julia
+require("count_heads")
+
+a = @spawn count_heads(100000000)
+b = @spawn count_heads(100000000)
+fetch(a)+fetch(b)
+```
+
+亦可：
+
+```julia
+nheads = @parallel (+) for i=1:200000000
+    int(randbool())
+end
+```
+
+
+
+### 其他
 
 
 
