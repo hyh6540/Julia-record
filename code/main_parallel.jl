@@ -1,4 +1,4 @@
-
+# 并行运算实例
 using Distributed
 using SharedArrays
 Distributed.addprocs(4)

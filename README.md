@@ -35,13 +35,13 @@ end
   function f(x::Float64, y::Float64)
       return x+y
   end
-  
+
   function f(x::Int64, y::Int64)
       return x-y
   end
   ```
 
-  
+
 
 
 
@@ -81,11 +81,30 @@ end
 
 
 
-### 其他
+### 画图
+在julia中, 画图有多种方法: http://docs.juliaplots.org/latest/backends/
+1. 调用python中的画图matplotlib.pyplot. 需要提前安装`pycall`, 然后使用`pyplot`. 主要的用法和python中几乎一致.
+```julia
+using PyCall
+using PyPlot
+pygui(true)
+x = collect(0:2*pi/1000:2*pi)
+y = sin.(3*x + 4*cos.(2*x))
+PyPlot.plot(x, y, color="red", linewidth=2.0, linestyle="--")
+title(L"Plot of $\Gamma_3(x)$") # latex
+xlabel("x",fontsize=14,color="red")
+ylabel("sin(3x + 4cos(2x))")
+```
+具体内容可以参考: https://github.com/JuliaPy/PyPlot.jl
+2. 使用`Plots`
+
+3. 使用`GR`
 
 
-
-
+## Atom的配置
+遇到的问题:
+1. Atom 1.39以上版本会出现一定的不兼容, 推荐暂时使用1.38版本.
+2.
 
 ## 参考内容
 1. https://docs.julialang.org/en/v1/manual/getting-started/
