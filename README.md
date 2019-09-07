@@ -44,8 +44,6 @@ end
 
 
 
-
-
 ### 矩阵
 
 |表达式|等价函数|对应Matlab表达式|备注|
@@ -101,10 +99,17 @@ ylabel("sin(3x + 4cos(2x))")
 3. 使用`GR`
 
 
+### CVX
+CVX是解决凸优化问题的扩展包, 已有MATLAB版本和Python版本(cvxpy). 在Julia中也有此扩展包, 其主要用法可以参考"[Convex Optimization in Julia](https://web.stanford.edu/~boyd/papers/pdf/convexjl.pdf)"和https://github.com/JuliaOpt/Convex.jl.
+
+
+
+
+
 ## Atom的配置
 遇到的问题:
 1. Atom 1.39以上版本会出现一定的不兼容, 推荐暂时使用1.38版本.
-2.
+2. Juliapro多核运行时会出现环境问题, 非常麻烦, 不推荐使用.
 
 ## 参考内容
 1. https://docs.julialang.org/en/v1/manual/getting-started/
