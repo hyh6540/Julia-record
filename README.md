@@ -102,7 +102,15 @@ ylabel("sin(3x + 4cos(2x))")
 ### CVX
 CVX是解决凸优化问题的扩展包, 已有MATLAB版本和Python版本(cvxpy). 在Julia中也有此扩展包, 其主要用法可以参考"[Convex Optimization in Julia](https://web.stanford.edu/~boyd/papers/pdf/convexjl.pdf)"和https://github.com/JuliaOpt/Convex.jl.
 
-
+### 存储数据
+使用`JLD`扩展包, 基本用法如下:
+```julia
+using JLD
+t = 15
+z = [1,3]
+save("/code/myfile.jld", "t", t, "arr", z)
+d = load("/code/myfile.jld")
+```
 
 
 
