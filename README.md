@@ -106,8 +106,7 @@ CVX是解决凸优化问题的扩展包, 已有MATLAB版本和Python版本(cvxpy
 使用`JLD`扩展包, 基本用法如下:
 ```julia
 using JLD
-t = 15
-z = [1,3]
+t = 15; z = [1,3]
 save("myfile.jld", "t", t, "arr", z)
 d = load("myfile.jld"); t = d["t"]; z = d["arr"]
 ```
